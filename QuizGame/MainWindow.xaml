@@ -1,0 +1,41 @@
+﻿<Window x:Class="QuizGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizGame"
+        xmlns:viewModels="clr-namespace:QuizGame.ViewModels"
+        xmlns:views="clr-namespace:QuizGame.Views"
+        mc:Ignorable="d"
+        Title="Petty Pursuit"
+        Height="900"
+        Width="600"
+        WindowStartupLocation="CenterScreen">
+    
+    <!-- DataTemplates for mapping ViewModels -->
+    <Window.Resources>
+        <!-- MenuView -->
+        <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
+            <views:MenuView />
+        </DataTemplate>
+        
+        <!-- PlayQuizView -->
+        <DataTemplate DataType="{x:Type viewModels:PlayQuizViewModel}">
+            <views:PlayQuizView />
+        </DataTemplate>
+        
+        <!-- CreateQuizView -->
+        <DataTemplate DataType="{x:Type viewModels:CreateQuizViewModel}">
+            <views:CreateQuizView />
+        </DataTemplate>
+        
+        <!-- EditQuizView -->
+        <DataTemplate DataType="{x:Type viewModels:EditQuizViewModel}">
+            <views:EditQuizView />
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <ContentControl Content="{Binding CurrentView}" />
+    </Grid>
+</Window>
