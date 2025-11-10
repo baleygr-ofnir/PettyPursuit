@@ -14,9 +14,6 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
       <None Remove="Quizzes\Dota2.json" />
-      <Content Include="Quizzes\Dota2.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
       <None Remove="Quizzes\Films.json" />
       <Content Include="Quizzes\Films.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

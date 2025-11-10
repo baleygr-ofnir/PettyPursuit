@@ -7,57 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="112162b0-ff6d-4100-8484-d39bdaf0b3b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/QuizGame/Quizzes/Anime.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuizGame/Quizzes/Dota2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuizGame/Quizzes/Films.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuizGame/Quizzes/Series.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WpfApp1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WpfApp1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Models/Question.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Models/Question.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Models/Quiz.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Models/Quiz.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/QuizGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/QuizGame.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Resources/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Resources/Styles.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Services/QuizFileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Services/QuizFileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/ViewModels/CreateQuizViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/ViewModels/CreateQuizViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/ViewModels/EditQuizViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/ViewModels/EditQuizViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/ViewModels/PlayQuizViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/ViewModels/PlayQuizViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/ViewModels/QuestionViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/ViewModels/QuestionViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Views/CreateQuizView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Views/CreateQuizView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Views/EditQuizView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Views/EditQuizView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Views/MenuView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Views/MenuView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/Views/PlayQuizView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/Views/PlayQuizView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/bin/Debug/net8.0-windows/QuizGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/bin/Debug/net8.0-windows/QuizGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/bin/Debug/net8.0-windows/QuizGame.exe" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/bin/Debug/net8.0-windows/QuizGame.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/bin/Debug/net8.0-windows/QuizGame.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/bin/Debug/net8.0-windows/QuizGame.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/App.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/App.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/App.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/App.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/MainWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/MainWindow.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.g.resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame_MarkupCompile.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/QuizGame_MarkupCompile.lref" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Resources/Styles.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Resources/Styles.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/CreateQuizView.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/CreateQuizView.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/CreateQuizView.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/CreateQuizView.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/EditQuizView.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/EditQuizView.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/EditQuizView.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/EditQuizView.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/MenuView.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/MenuView.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/MenuView.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/MenuView.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/PlayQuizView.baml" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/PlayQuizView.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/PlayQuizView.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/Views/PlayQuizView.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/ref/QuizGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/ref/QuizGame.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/refint/QuizGame.dll" beforeDir="false" afterPath="$PROJECT_DIR$/QuizGame/obj/Debug/net8.0-windows/refint/QuizGame.dll" afterDir="false" />
-    </list>
+    <list default="true" id="112162b0-ff6d-4100-8484-d39bdaf0b3b9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762613453445</updated>
-      <workItem from="1762613454518" duration="48768000" />
+      <workItem from="1762613454518" duration="48976000" />
     </task>
     <servers />
   </component>
