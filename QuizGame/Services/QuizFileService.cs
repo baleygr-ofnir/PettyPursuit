@@ -12,7 +12,7 @@ public static class QuizFileService
         "Petty Pursuit"
     );
 
-    public static async Task InitializeStarterQuizzes()
+    public static async Task InitializeStarterQuizzesAsync()
     {
         try
         {
@@ -49,15 +49,19 @@ public static class QuizFileService
         
     }
     
-    public static async Task SaveAsJson(Quiz quiz)
+    public static async Task SaveAsJsonAsync(Quiz quiz)
     {
         Directory.CreateDirectory(QuizFolder);
         string path = Path.Combine(QuizFolder, $"{quiz.Category}.json");
         using var stream = File.Create(path);
-        await JsonSerializer.SerializeAsync(stream, quiz);
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+        await JsonSerializer.SerializeAsync(stream, quiz, options);
     }
 
-    public static async Task<Quiz>? LoadFromJson(string filename)
+    public static async Task<Quiz>? LoadFromJsonAsync(string filename)
     {
         string path = Path.Combine(QuizFolder, filename);
         if (!File.Exists(path)) return null;

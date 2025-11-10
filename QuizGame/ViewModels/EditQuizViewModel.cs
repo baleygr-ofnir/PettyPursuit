@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using QuizGame.Helpers;
 using QuizGame.Models;
 using QuizGame.Services;
@@ -15,7 +16,7 @@ public class EditQuizViewModel : ViewModelBase
     private QuestionViewModel _selectedQuestion;
     private string _quizCategory;
     private string _statusMessage;
-    private System.Windows.Media.Brush _statusColour;
+    private Brush _statusColour;
 
     public ObservableCollection<Quiz> AvailableQuizzes { get; set; }
     public ObservableCollection<QuestionViewModel> Questions { get; set; }
@@ -43,7 +44,7 @@ public class EditQuizViewModel : ViewModelBase
         get => _statusMessage;
         set => SetProperty(ref _statusMessage, value);
     }
-    public System.Windows.Media.Brush StatusColour
+    public Brush StatusColour
     {
         get => _statusColour;
         set => SetProperty(ref _statusColour, value);
@@ -62,27 +63,27 @@ public class EditQuizViewModel : ViewModelBase
         AvailableQuizzes = new ObservableCollection<Quiz>();
         Questions = new ObservableCollection<QuestionViewModel>();
         BackToMenuCommand = new RelayCommand(o => _mainViewModel.NavigateToMenuCommand.Execute(null));
-        LoadQuizCommand = new RelayCommand(o => LoadQuiz(), o => SelectedQuiz != null);
-        SaveChangesCommand = new RelayCommand(o => SaveChanges());
+        LoadQuizCommand = new RelayCommand(o => LoadQuizAsync(), o => SelectedQuiz != null);
+        SaveChangesCommand = new RelayCommand(o => SaveChangesAsync());
 
-        LoadAvailableQuizzes();
+        LoadAvailableQuizzesAsync();
     }
 
-    private async void LoadAvailableQuizzes()
+    private async void LoadAvailableQuizzesAsync()
     {
         AvailableQuizzes.Clear();
         foreach (var file in QuizFileService.GetQuizFiles())
         {
-            var quiz = await QuizFileService.LoadFromJson(Path.GetFileName(file));
+            var quiz = await QuizFileService.LoadFromJsonAsync(Path.GetFileName(file));
             if (quiz != null) AvailableQuizzes.Add(quiz);
         }
     }
 
-    private async void LoadQuiz()
+    private async void LoadQuizAsync()
     {
         if (SelectedQuiz == null) return;
 
-        SelectedQuiz = await QuizFileService.LoadFromJson($"{SelectedQuiz.Category}.json");
+        SelectedQuiz = await QuizFileService.LoadFromJsonAsync($"{SelectedQuiz.Category}.json");
         
         Questions.Clear();
         QuizCategory = SelectedQuiz.Category;
@@ -107,7 +108,7 @@ public class EditQuizViewModel : ViewModelBase
         OnPropertyChanged(nameof(IsQuizLoadedVisibility));
     }
 
-    private async Task SaveChanges()
+    private async Task SaveChangesAsync()
     {
         try
         {
@@ -142,10 +143,11 @@ public class EditQuizViewModel : ViewModelBase
                 Category = QuizCategory,
                 Questions = modelQuestions
             };
-            await QuizFileService.SaveAsJson(updatedQuiz);
+            
+            await QuizFileService.SaveAsJsonAsync(updatedQuiz);
             
             StatusMessage = "Quiz saved successfully! Returning to menu...";
-            StatusColour = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Green);
+            StatusColour = new SolidColorBrush(Colors.Green);
         
             await Task.Delay(1500);
             _mainViewModel.NavigateToMenuCommand.Execute(null);
@@ -156,6 +158,5 @@ public class EditQuizViewModel : ViewModelBase
                 MessageBoxImage.Error);
             throw;
         }
-
     }
 }

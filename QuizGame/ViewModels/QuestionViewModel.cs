@@ -81,13 +81,4 @@ public class QuestionViewModel : ViewModelBase
             }.Where(a => !string.IsNullOrEmpty(a));
         }
     }
-    public Question ToModel()
-    {
-        return new Question()
-        {
-            Statement = Statement,
-            Answers = { FirstAnswer, SecondAnswer, ThirdAnswer, FourthAnswer },
-            CorrectAnswer = CorrectAnswer
-        };
-    }
 }

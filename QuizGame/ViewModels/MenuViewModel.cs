@@ -14,7 +14,6 @@ public class MenuViewModel : ViewModelBase
     public MenuViewModel(MainViewModel mainViewModel)
     {
         _mainViewModel = mainViewModel;
-
         NavigateToPlayCommand = _mainViewModel.NavigateToPlayCommand;
         NavigateToCreateCommand = _mainViewModel.NavigateToCreateCommand;
         NavigateToEditCommand = _mainViewModel.NavigateToEditCommand;

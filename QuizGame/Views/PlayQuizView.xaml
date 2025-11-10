@@ -22,7 +22,7 @@
             <!-- Back Button -->
             <Button Grid.Column="0"
                     Content="←"
-                    Command="{Binding BackToMenuCommand}"
+                    Command="{Binding BackCommand}"
                     Background="Transparent"
                     Foreground="White"
                     FontSize="32"
@@ -47,6 +47,7 @@
             <StackPanel Grid.Column="2"
                         Orientation="Vertical"
                         Margin="0,0,20,0"
+                        VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <!-- Score -->
                 <TextBlock Text="{Binding ScoreText}"
@@ -196,50 +197,6 @@
                                        HorizontalAlignment="Center" />
                         </Button>
             </Grid>
-            <!--<ItemsControl Grid.Row="2"
-                          ItemsSource="{Binding CurrentQuestion.Answers}"
-                          VerticalAlignment="Top">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding}"
-                                Command="{Binding DataContext.AnswerSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                CommandParameter="{Binding}"
-                                Height="70"
-                                Padding="20"
-                                Margin="0,0,0,15"
-                                FontSize="18"
-                                Background="White"
-                                BorderBrush="#3498DB"
-                                BorderThickness="2"
-                                HorizontalAlignment="Left"
-                                Cursor="Hand">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="10">
-                                                    <ContentPresenter Margin="{TemplateBinding Padding}"
-                                                                      VerticalAlignment="Center"
-                                                                      HorizontalAlignment="Left" />
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#EBF5FB" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>-->
         </Grid>
         
         <!-- Results Display -->
@@ -275,12 +232,12 @@
             <Button Content="Go to Quiz Selection"
                     Command="{Binding ResetQuizCommand}"
                     Background="#3498DB"
+                    Margin="0,20,0,0"
                     Style="{StaticResource NavigationButtonStyle}"/>
             
-            
             <Button Content="Back to Menu"
-                    Command="{Binding BackToMenuCommand}"
-                    Margin="0,40,0,0"
+                    Command="{Binding BackCommand}"
+                    Margin="0,20,0,0"
                     Background="#3498DB"
                     Style="{StaticResource NavigationButtonStyle}">
             </Button>

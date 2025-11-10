@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
 using QuizGame.Helpers;
@@ -16,6 +17,7 @@ public class PlayQuizViewModel : ViewModelBase
     private int _currentQuestionIndex;
     private int _correctAnswers;
     private int _totalAnswered;
+    private QuizViewState _quizViewState;
     
     // UI Elements Visibility
     private Visibility _isQuizSelectionVisible = Visibility.Visible;
@@ -37,13 +39,14 @@ public class PlayQuizViewModel : ViewModelBase
         set => SetProperty(ref _currentQuestion, value);
     }
     public string QuizCategory => _selectedQuiz?.Category ?? "Select a Quiz";
-    public string ScoreText => $"Score: {_correctAnswers}/{_totalAnswered}";
+    //public string ScoreText => $"Score: {_correctAnswers}/{_totalAnswered}";
+    public string ScoreText => $"Score: {_correctAnswers}/{_selectedQuiz.Questions.Count}";
     public string PercentageText
     {
         get
         {
             if (_totalAnswered == 0) return "0%";
-            return $"{(_correctAnswers * 100.0 / _totalAnswered):F1}%";
+            return $"{(_correctAnswers * 100.0 / _selectedQuiz.Questions.Count):F1}%";
         }
     }
     public string QuestionCounterText => $"{_currentQuestionIndex + 1} of {_selectedQuiz?.Questions?.Count ?? 0}";
@@ -69,37 +72,53 @@ public class PlayQuizViewModel : ViewModelBase
     }
 
     // Commands
-    public ICommand BackToMenuCommand { get; }
+    public ICommand BackCommand { get; }
     public ICommand ResetQuizCommand { get; }
     public ICommand StartQuizCommand { get; }
     public ICommand AnswerSelectedCommand { get; }
 
     public PlayQuizViewModel(MainViewModel mainViewModel)
     {
-        var mainViewModel1 = mainViewModel;
+        _mainViewModel = mainViewModel;
 
         // Init commands
-        BackToMenuCommand = new RelayCommand(o => mainViewModel1.NavigateToMenuCommand.Execute(null));
+        BackCommand = new RelayCommand(o => Back());
         ResetQuizCommand = new RelayCommand(o => ResetQuiz());
-        StartQuizCommand = new RelayCommand(o => StartQuiz(), o => SelectedQuiz != null);
+        StartQuizCommand = new RelayCommand(o => StartQuizAsync(), o => SelectedQuiz != null);
         AnswerSelectedCommand = new RelayCommand(AnswerSelected);
         
         // Load currently stored quizzes
-        LoadAvailableQuizzes();
+        LoadAvailableQuizzesAsync();
     }
 
-    private async void LoadAvailableQuizzes()
+    private void Back()
+    {
+        if (_quizViewState == QuizViewState.Playing || _quizViewState == QuizViewState.Complete)
+        {
+            ResetQuizPlayState(QuizViewState.Selection);
+        }
+        else
+        {
+            _mainViewModel.NavigateToMenuCommand.Execute(null);
+        }
+    }
+
+    private async void LoadAvailableQuizzesAsync()
     {
         AvailableQuizzes.Clear();
         foreach (var file in QuizFileService.GetQuizFiles())
         {
-            var quiz = await QuizFileService.LoadFromJson(Path.GetFileName(file))!;
-            if (quiz != null) AvailableQuizzes.Add(quiz);
+            var quiz = await QuizFileService.LoadFromJsonAsync(Path.GetFileName(file))!;
+            if (quiz != null)
+            {
+                AvailableQuizzes.Add(quiz);
+            }
         }
     }
     
     private void SetQuizViewState(QuizViewState state)
     {
+        _quizViewState = state;
         IsQuizSelectionVisible = state == QuizViewState.Selection ? Visibility.Visible : Visibility.Collapsed;
         IsQuestionVisible = state == QuizViewState.Playing ? Visibility.Visible : Visibility.Collapsed;
         IsResultsVisible = state == QuizViewState.Complete ? Visibility.Visible : Visibility.Collapsed;
@@ -113,21 +132,21 @@ public class PlayQuizViewModel : ViewModelBase
         OnPropertyChanged(nameof(FinalScoreText));
         OnPropertyChanged(nameof(FinalPercentageText));
     }
-    private async Task StartQuiz()
+    
+    private async Task StartQuizAsync()
     {
         if (SelectedQuiz == null) return;
-        SelectedQuiz = await QuizFileService.LoadFromJson($"{SelectedQuiz.Category}.json");
+        SelectedQuiz = await QuizFileService.LoadFromJsonAsync($"{SelectedQuiz.Category}.json");
         var random = new Random();
+        // Shuffle question order
         SelectedQuiz.Questions = SelectedQuiz.Questions.OrderBy(question => random.Next()).ToList();
-        
-        _currentQuestionIndex = 0;
-        _correctAnswers = 0;
-        _totalAnswered = 0;
-        
-        SetQuizViewState(QuizViewState.Playing);
+        // Shuffle order of question answers
+        foreach (var question in SelectedQuiz.Questions)
+        {
+            Random.Shared.Shuffle(CollectionsMarshal.AsSpan(question.Answers));
+        }
+        ResetQuizPlayState(QuizViewState.Playing);
         LoadNextQuestion();
-        NotifyQuizStatProperties();
-        OnPropertyChanged(nameof(QuizCategory));
     }
 
     private void LoadNextQuestion()
@@ -148,9 +167,7 @@ public class PlayQuizViewModel : ViewModelBase
 
     private void AnswerSelected(object selectedAnswer)
     {
-        if (CurrentQuestion == null || SelectedQuiz == null) return;
-        
-        string answer = selectedAnswer as string;
+        string? answer = selectedAnswer as string;
 
         if (string.IsNullOrEmpty(answer)) return;
         
@@ -170,6 +187,17 @@ public class PlayQuizViewModel : ViewModelBase
         LoadNextQuestion();
     }
 
+    private void ResetQuizPlayState(QuizViewState targetState)
+    {
+        _currentQuestionIndex = 0;
+        _correctAnswers = 0;
+        _totalAnswered = 0;
+        
+        NotifyQuizStatProperties();
+        OnPropertyChanged(nameof(QuizCategory));
+        SetQuizViewState(targetState);
+    }
+    
     private void ResetQuiz()
     {
         SetQuizViewState(QuizViewState.Selection);

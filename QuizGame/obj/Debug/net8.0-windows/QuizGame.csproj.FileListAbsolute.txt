@@ -31,7 +31,6 @@ C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\obj\Debug\net8.0-windows\ref\QuizG
 C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\obj\Debug\net8.0-windows\App.baml
 C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\obj\Debug\net8.0-windows\QuizGame.sourcelink.json
 C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\bin\Debug\net8.0-windows\Quizzes\Anime.json
-C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\bin\Debug\net8.0-windows\Quizzes\Dota2.json
 C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\bin\Debug\net8.0-windows\Quizzes\Films.json
 C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\bin\Debug\net8.0-windows\Quizzes\Series.json
 C:\Users\jorma\RiderProjects\WpfApp1\QuizGame\obj\Debug\net8.0-windows\QuizGame_Content.g.cs

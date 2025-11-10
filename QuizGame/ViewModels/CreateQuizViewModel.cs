@@ -14,7 +14,7 @@ public class CreateQuizViewModel : ViewModelBase
     private readonly MainViewModel _mainViewModel;
     private string _quizCategory;
     private string _statusMessage;
-    private System.Windows.Media.Brush _statusColour;
+    private Brush _statusColour;
 
     public string QuizCategory
     {
@@ -47,7 +47,7 @@ public class CreateQuizViewModel : ViewModelBase
         BackToMenuCommand = new RelayCommand(o => _mainViewModel.NavigateToMenuCommand.Execute(null));
         AddQuestionCommand = new RelayCommand(o => AddQuestion());
         RemoveQuestionCommand = new RelayCommand(RemoveQuestion);
-        SaveQuizCommand = new RelayCommand(o => SaveQuiz(), o => CanSaveQuiz());
+        SaveQuizCommand = new RelayCommand(o => SaveQuizAsync(), o => CanSaveQuiz());
     }
 
     private void AddQuestion()
@@ -76,7 +76,7 @@ public class CreateQuizViewModel : ViewModelBase
         return !string.IsNullOrWhiteSpace(QuizCategory) && Questions.Count > 0;
     }
 
-    private async Task SaveQuiz()
+    private async Task SaveQuizAsync()
     {
         // Use QuizFileService to save in JSON
         try
@@ -111,10 +111,10 @@ public class CreateQuizViewModel : ViewModelBase
                     CorrectAnswer = qvm.CorrectAnswer
                 }).ToList()
             };
-            await QuizFileService.SaveAsJson(quiz);
+            await QuizFileService.SaveAsJsonAsync(quiz);
             
             StatusMessage = "Quiz saved successfully! Returning to menu...";
-            StatusColour = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Green);
+            StatusColour = new SolidColorBrush(Colors.Green);
         
             await Task.Delay(1500);
             _mainViewModel.NavigateToMenuCommand.Execute(null);

@@ -12,6 +12,6 @@ public partial class App : Application
 {
     private void ApplicationStartup(object sender, StartupEventArgs e)
     {
-        QuizFileService.InitializeStarterQuizzes();
+        QuizFileService.InitializeStarterQuizzesAsync();
     }
 }
