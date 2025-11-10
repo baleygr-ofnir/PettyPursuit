@@ -29,25 +29,37 @@ public class QuestionViewModel : ViewModelBase
     public string FirstAnswer
     {
         get => _firstAnswer;
-        set => SetProperty(ref _firstAnswer, value);
+        set 
+        {
+            if (SetProperty(ref _firstAnswer, value)) OnPropertyChanged(nameof(AnswerOptions));
+        }
     }
 
     public string SecondAnswer
     {
         get => _secondAnswer;
-        set => SetProperty(ref _secondAnswer, value);
+        set 
+        {
+            if (SetProperty(ref _secondAnswer, value)) OnPropertyChanged(nameof(AnswerOptions));
+        }
     }
 
     public string ThirdAnswer
     {
         get => _thirdAnswer;
-        set => SetProperty(ref _thirdAnswer, value);
+        set 
+        {
+            if (SetProperty(ref _thirdAnswer, value)) OnPropertyChanged(nameof(AnswerOptions));
+        }
     }
 
     public string FourthAnswer
     {
         get => _fourthAnswer;
-        set => SetProperty(ref _fourthAnswer, value);
+        set 
+        {
+            if (SetProperty(ref _fourthAnswer, value)) OnPropertyChanged(nameof(AnswerOptions));
+        }
     }
 
     public string CorrectAnswer
@@ -55,7 +67,20 @@ public class QuestionViewModel : ViewModelBase
         get => _correctAnswer;
         set => SetProperty(ref _correctAnswer, value);
     }
-    
+
+    public IEnumerable<string?> AnswerOptions
+    {
+        get
+        {
+            return new[]
+            {
+                FirstAnswer?.Trim(),
+                SecondAnswer?.Trim(),
+                ThirdAnswer?.Trim(),
+                FourthAnswer?.Trim()
+            }.Where(a => !string.IsNullOrEmpty(a));
+        }
+    }
     public Question ToModel()
     {
         return new Question()

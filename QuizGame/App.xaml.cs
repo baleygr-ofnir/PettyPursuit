@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using QuizGame.Services;
 
 namespace QuizGame;
 
@@ -9,4 +10,8 @@ namespace QuizGame;
 /// </summary>
 public partial class App : Application
 {
+    private void ApplicationStartup(object sender, StartupEventArgs e)
+    {
+        QuizFileService.InitializeStarterQuizzes();
+    }
 }

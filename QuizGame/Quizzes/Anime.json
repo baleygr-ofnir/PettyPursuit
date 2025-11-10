@@ -1,0 +1,25 @@
+{
+  "Category": "Anime",
+  "Questions": [
+    {"Statement":"What is the name of the demon sealed inside Naruto Uzumaki in 'Naruto'?","Answers":["Nine-Tails","Shukaku","Gamatatsu","Susanoo"],"CorrectAnswer":"Nine-Tails"},
+    {"Statement":"Which anime features a notebook that can kill people if their names are written in it?","Answers":["Death Note","Bleach","One Piece","Tokyo Ghoul"],"CorrectAnswer":"Death Note"},
+    {"Statement":"What power allows Luffy from 'One Piece' to stretch his body like rubber?","Answers":["Gomu Gomu no Mi","Hana Hana no Mi","Mera Mera no Mi","Yami Yami no Mi"],"CorrectAnswer":"Gomu Gomu no Mi"},
+    {"Statement":"In 'Fullmetal Alchemist', what are Edward and Alphonse Elric searching for to restore their bodies?","Answers":["Philosopher's Stone","Dragon Balls","Infinity Stones","Damp Ring"],"CorrectAnswer":"Philosopher's Stone"},
+    {"Statement":"Who is the creator of 'Dragon Ball'?","Answers":["Akira Toriyama","Eiichiro Oda","Masashi Kishimoto","Rumiko Takahashi"],"CorrectAnswer":"Akira Toriyama"},
+    {"Statement":"Which anime character is known as the 'Copy Ninja'?","Answers":["Kakashi Hatake","Sasuke Uchiha","Gintoki Sakata","Edward Elric"],"CorrectAnswer":"Kakashi Hatake"},
+    {"Statement":"What is the most powerful attack of Goku, often used as a finisher?","Answers":["Kamehameha","Spirit Bomb","Kaio-ken","Destructo Disc"],"CorrectAnswer":"Kamehameha"},
+    {"Statement":"What type of creature is Nezuko in 'Demon Slayer'?","Answers":["Demon","Vampire","Elf","Witch"],"CorrectAnswer":"Demon"},
+    {"Statement":"Which series features three brothers named Eduardo, Ed, and Edd?","Answers":["Ed, Edd n Eddy","Naruto","Bleach","Dr. Stone"],"CorrectAnswer":"Ed, Edd n Eddy"},
+    {"Statement":"What is the title of the highest grossing anime film of all time as of 2025?","Answers":["Demon Slayer: Mugen Train","Your Name.","Spirited Away","Weathering With You"],"CorrectAnswer":"Demon Slayer: Mugen Train"},
+    {"Statement":"Who is Ash Ketchum's first Pokémon?","Answers":["Pikachu","Charmander","Bulbasaur","Squirtle"],"CorrectAnswer":"Pikachu"},
+    {"Statement":"Which anime's main protagonist is Saitama, a hero who can defeat anyone with a single punch?","Answers":["One Punch Man","My Hero Academia","Attack on Titan","Fairy Tail"],"CorrectAnswer":"One Punch Man"},
+    {"Statement":"What is the main setting (city) of 'Tokyo Ghoul'?","Answers":["Tokyo","Osaka","Kyoto","Nagoya"],"CorrectAnswer":"Tokyo"},
+    {"Statement":"Which anime revolves around fighting with a special gear called the ODM gear?","Answers":["Attack on Titan","Bleach","One Piece","Hunter x Hunter"],"CorrectAnswer":"Attack on Titan"},
+    {"Statement":"What is Light Yagami's alias in 'Death Note'?","Answers":["Kira","Zeref","Zero","Akira"],"CorrectAnswer":"Kira"},
+    {"Statement":"Who is the main pilot of Evangelion Unit 01 in 'Neon Genesis Evangelion'?","Answers":["Shinji Ikari","Asuka Langley Soryu","Rei Ayanami","Gendo Ikari"],"CorrectAnswer":"Shinji Ikari"},
+    {"Statement":"Which anime is known as the 'pirate king' adventure?","Answers":["One Piece","Naruto","Bleach","Dragon Ball"],"CorrectAnswer":"One Piece"},
+    {"Statement":"What is the name of Gon’s mentor and father figure in 'Hunter x Hunter'?","Answers":["Ging Freecss","Killua Zoldyck","Hisoka","Leorio"],"CorrectAnswer":"Ging Freecss"},
+    {"Statement":"Who is the leader of the Phantom Troupe in 'Hunter x Hunter'?","Answers":["Chrollo Lucilfer","Killua","Hisoka","Kurapika"],"CorrectAnswer":"Chrollo Lucilfer"},
+    {"Statement":"What is the real name of Sailor Moon?","Answers":["Usagi Tsukino","Mako Kino","Ami Mizuno","Minako Aino"],"CorrectAnswer":"Usagi Tsukino"}
+  ]
+}

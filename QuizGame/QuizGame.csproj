@@ -8,4 +8,23 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <None Remove="Quizzes\Anime.json" />
+      <Content Include="Quizzes\Anime.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Quizzes\Dota2.json" />
+      <Content Include="Quizzes\Dota2.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Quizzes\Films.json" />
+      <Content Include="Quizzes\Films.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Quizzes\Series.json" />
+      <Content Include="Quizzes\Series.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

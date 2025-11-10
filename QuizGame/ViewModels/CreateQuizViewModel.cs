@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Linq;
+using System.Windows;
+using System.Windows.Media;
 using QuizGame.Helpers;
 using QuizGame.Models;
 using QuizGame.Services;
@@ -11,9 +13,8 @@ public class CreateQuizViewModel : ViewModelBase
 {
     private readonly MainViewModel _mainViewModel;
     private string _quizCategory;
-    private bool _isJsonFormat = true;
-    private bool _isXmlFormat;
-    private bool _isCsvFormat;
+    private string _statusMessage;
+    private System.Windows.Media.Brush _statusColour;
 
     public string QuizCategory
     {
@@ -21,27 +22,22 @@ public class CreateQuizViewModel : ViewModelBase
         set => SetProperty(ref _quizCategory, value);
     }
     public ObservableCollection<QuestionViewModel> Questions { get; set; }
-    public bool IsJsonFormat
+    public string StatusMessage
     {
-        get => _isJsonFormat;
-        set => SetProperty(ref _isJsonFormat, value);
+        get => _statusMessage;
+        set => SetProperty(ref _statusMessage, value);
     }
-    public bool IsXmlFormat
+    public Brush StatusColour
     {
-        get => _isXmlFormat;
-        set => SetProperty(ref _isXmlFormat, value);
-    }
-    public bool IsCsvFormat
-    {
-        get => _isCsvFormat;
-        set => SetProperty(ref _isCsvFormat, value);
+        get => _statusColour;
+        set => SetProperty(ref _statusColour, value);
     }
     
     // Commands
-    public ICommand BackToMenuCommand { get; }
-    public ICommand AddQuestionCommand { get; }
-    public ICommand RemoveQuestionCommand { get; }
-    public ICommand SaveQuizCommand { get; }
+    public ICommand BackToMenuCommand { get; set; }
+    public ICommand AddQuestionCommand { get; set; }
+    public ICommand RemoveQuestionCommand { get; set; }
+    public ICommand SaveQuizCommand { get; set; }
 
     public CreateQuizViewModel(MainViewModel mainViewModel)
     {
@@ -82,15 +78,52 @@ public class CreateQuizViewModel : ViewModelBase
 
     private async Task SaveQuiz()
     {
-        // Use QuizFileService to save in selected format (JSON/XML/CSV)
-        // Save asynchronously as per specification requirements
-        List<Question> modelQuestions = new List<Question>(Questions.Select(qvm => qvm.ToModel()));
-        var quiz = new Quiz
+        // Use QuizFileService to save in JSON
+        try
         {
-            Category = QuizCategory,
-            Questions = modelQuestions
-        };
+            if (string.IsNullOrEmpty(QuizCategory))
+            {
+                MessageBox.Show("Quiz category unavailable for save", "Validation Error", MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
 
-        await QuizFileService.SaveAsJson(quiz);
+            if (Questions.Count == 0)
+            {
+                MessageBox.Show("Please add at least one question.", "Validation Error", MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
+
+            var quiz = new Quiz
+            {
+                Category = QuizCategory,
+                Questions = Questions.Select(qvm => new Question
+                {
+                    Statement = qvm.Statement,
+                    Answers = new List<string>()
+                    {
+                        qvm.FirstAnswer,
+                        qvm.SecondAnswer,
+                        qvm.ThirdAnswer,
+                        qvm.FourthAnswer
+                    },
+                    CorrectAnswer = qvm.CorrectAnswer
+                }).ToList()
+            };
+            await QuizFileService.SaveAsJson(quiz);
+            
+            StatusMessage = "Quiz saved successfully! Returning to menu...";
+            StatusColour = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Green);
+        
+            await Task.Delay(1500);
+            _mainViewModel.NavigateToMenuCommand.Execute(null);
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show($"Failed to save quiz: {exception.Message}", "Error", MessageBoxButton.OK,
+                MessageBoxImage.Error);
+            throw;
+        }
     }
 }

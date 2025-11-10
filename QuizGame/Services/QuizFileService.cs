@@ -12,6 +12,43 @@ public static class QuizFileService
         "Petty Pursuit"
     );
 
+    public static async Task InitializeStarterQuizzes()
+    {
+        try
+        {
+            string projectQuizzesFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Quizzes");
+            
+            Directory.CreateDirectory(QuizFolder);
+
+            if (!Directory.Exists(projectQuizzesFolder))
+            {
+                System.Diagnostics.Debug.WriteLine($"Quizzes folder not found at: {projectQuizzesFolder}");
+                return;
+            }
+
+            string[] quizFiles = Directory.GetFiles(projectQuizzesFolder, "*.json");
+
+            foreach (var sourceFile in quizFiles)
+            {
+                string fileName = Path.GetFileName(sourceFile);
+                string destinationFile = Path.Combine(QuizFolder, fileName);
+
+                if (!File.Exists(destinationFile))
+                {
+                    File.Copy(sourceFile, destinationFile);
+                    System.Diagnostics.Debug.WriteLine($"Copied starter quiz: {fileName}");
+                }
+            }
+        }
+        catch (Exception exception)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error initializing starter quizzes: {exception.Message}");
+        }
+        
+        
+        
+    }
+    
     public static async Task SaveAsJson(Quiz quiz)
     {
         Directory.CreateDirectory(QuizFolder);
@@ -24,13 +61,13 @@ public static class QuizFileService
     {
         string path = Path.Combine(QuizFolder, filename);
         if (!File.Exists(path)) return null;
-        using var stream = File.Create(path);
+        using var stream = File.OpenRead(path);
         return await JsonSerializer.DeserializeAsync<Quiz>(stream);
     }
 
     public static IEnumerable<string> GetQuizFiles()
     {
-        Directory.CreateDirectory(QuizFolder);
+        //Directory.CreateDirectory(QuizFolder);
         return Directory.GetFiles(QuizFolder, "*.json");
     }
 }

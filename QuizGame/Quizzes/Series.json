@@ -1,0 +1,25 @@
+{
+  "Category": "Series",
+  "Questions": [
+    {"Statement":"What is the name of the coffee shop in 'Friends'?","Answers":["Central Perk","Monk's Café","JJ's Diner","Cafe Nervosa"],"CorrectAnswer":"Central Perk"},
+    {"Statement":"Who is the regional manager of Dunder Mifflin's Scranton branch in 'The Office'?","Answers":["Michael Scott","Jim Halpert","Dwight Schrute","Stanley Hudson"],"CorrectAnswer":"Michael Scott"},
+    {"Statement":"What is the spooky family surname in 'The Addams Family'?","Answers":["Addams","Munster","Smith","Fester"],"CorrectAnswer":"Addams"},
+    {"Statement":"Which series features the character Walter White?","Answers":["Breaking Bad","Better Call Saul","The Sopranos","Ozark"],"CorrectAnswer":"Breaking Bad"},
+    {"Statement":"What is the full name of the main character in 'Buffy the Vampire Slayer'?","Answers":["Buffy Summers","Buffy Giles","Buffy Rosenberg","Buffy Harris"],"CorrectAnswer":"Buffy Summers"},
+    {"Statement":"Who was Orson Hodge in a dramatic suburban mystery series?","Answers":["Desperate Housewives","Lost","The OC","Grey's Anatomy"],"CorrectAnswer":"Desperate Housewives"},
+    {"Statement":"Which show is set at 1313 Mockingbird Lane?","Answers":["The Munsters","The Addams Family","Sabrina the Teenage Witch","Bewitched"],"CorrectAnswer":"The Munsters"},
+    {"Statement":"In 'Modern Family', what's Jay Pritchett's wife's name?","Answers":["Gloria Delgado-Pritchett","Claire Dunphy","Haley Dunphy","Cameron Tucker"],"CorrectAnswer":"Gloria Delgado-Pritchett"},
+    {"Statement":"What is the quiz show where contestants answer in the form of a question?","Answers":["Jeopardy!","Wheel of Fortune","Who Wants to Be a Millionaire?","The Price is Right"],"CorrectAnswer":"Jeopardy!"},
+    {"Statement":"What 1980s series starred David Hasselhoff and a talking car?","Answers":["Knight Rider","Magnum, P.I.","MacGyver","The A-Team"],"CorrectAnswer":"Knight Rider"},
+    {"Statement":"Maddie and David were detectives in what tv show?","Answers":["Moonlighting","Remington Steele","Murder, She Wrote","Columbo"],"CorrectAnswer":"Moonlighting"},
+    {"Statement":"Who is the main character in 'Sherlock'?","Answers":["Sherlock Holmes","John Watson","Mycroft Holmes","Irene Adler"],"CorrectAnswer":"Sherlock Holmes"},
+    {"Statement":"In 'The Big Bang Theory', what is Sheldon’s last name?","Answers":["Cooper","Wolowitz","Hofstadter","Koothrappali"],"CorrectAnswer":"Cooper"},
+    {"Statement":"What Netflix show stars a group of women in prison?","Answers":["Orange is the New Black","Breaking Bad","Glow","Ozark"],"CorrectAnswer":"Orange is the New Black"},
+    {"Statement":"What city does 'Stranger Things' take place in?","Answers":["Hawkins","Buffalo","Seattle","Sunnydale"],"CorrectAnswer":"Hawkins"},
+    {"Statement":"Michael Bluth tries to keep his dysfunctional family together in which series?","Answers":["Arrested Development","Modern Family","Parks and Recreation","The Office"],"CorrectAnswer":"Arrested Development"},
+    {"Statement":"Who played Tony Soprano in 'The Sopranos'?","Answers":["James Gandolfini","Edie Falco","Michael Imperioli","Steve Buscemi"],"CorrectAnswer":"James Gandolfini"},
+    {"Statement":"What starship does Captain Jean-Luc Picard command?","Answers":["Enterprise","Galactica","Defiant","Voyager"],"CorrectAnswer":"Enterprise"},
+    {"Statement":"In 'Game of Thrones', who is known as the Mother of Dragons?","Answers":["Daenerys Targaryen","Arya Stark","Cersei Lannister","Sansa Stark"],"CorrectAnswer":"Daenerys Targaryen"},
+    {"Statement":"Which show is about siblings living in Newport Beach, California?","Answers":["The OC","Beverly Hills, 90210","Malcolm in the Middle","Full House"],"CorrectAnswer":"The OC"}
+  ]
+}

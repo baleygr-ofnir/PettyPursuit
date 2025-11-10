@@ -21,8 +21,8 @@ public class PlayQuizViewModel : ViewModelBase
     private Visibility _isQuizSelectionVisible = Visibility.Visible;
     private Visibility _isQuestionVisible = Visibility.Collapsed;
     private Visibility _isResultsVisible = Visibility.Collapsed;
-    
-    public ObservableCollection<Quiz> AvailableQuizzes { get; set; } = new ObservableCollection<Quiz>();
+
+    public ObservableCollection<Quiz> AvailableQuizzes { get; set; } = new();
     public Quiz SelectedQuiz
     {
         get => _selectedQuiz;
@@ -125,12 +125,15 @@ public class PlayQuizViewModel : ViewModelBase
         _totalAnswered = 0;
         
         SetQuizViewState(QuizViewState.Playing);
+        LoadNextQuestion();
         NotifyQuizStatProperties();
         OnPropertyChanged(nameof(QuizCategory));
     }
 
     private void LoadNextQuestion()
     {
+        if (SelectedQuiz == null || SelectedQuiz.Questions == null) return;
+        
         if (_currentQuestionIndex < SelectedQuiz.Questions.Count)
         {
             CurrentQuestion = SelectedQuiz.Questions[_currentQuestionIndex];
@@ -145,15 +148,26 @@ public class PlayQuizViewModel : ViewModelBase
 
     private void AnswerSelected(object selectedAnswer)
     {
+        if (CurrentQuestion == null || SelectedQuiz == null) return;
+        
         string answer = selectedAnswer as string;
+
+        if (string.IsNullOrEmpty(answer)) return;
         
         // Check for a correct answer
-        if (answer?.ToLower() == CurrentQuestion.CorrectAnswer.ToLower()) _correctAnswers++;
+        if
+        (
+            !string.IsNullOrEmpty(CurrentQuestion.CorrectAnswer) &&
+            answer.ToLower() == CurrentQuestion.CorrectAnswer.ToLower()
+        )
+        {
+            _correctAnswers++;
+        }
         _totalAnswered++;
         _currentQuestionIndex++;
         
         // Move to next or show results
-        if (_currentQuestionIndex < SelectedQuiz.Questions.Count) LoadNextQuestion();
+        LoadNextQuestion();
     }
 
     private void ResetQuiz()

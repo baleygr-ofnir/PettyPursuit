@@ -19,23 +19,28 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" 
-                    Content="← Back to Menu" 
+            <!-- Back Button -->
+            <Button Grid.Column="0"
+                    Content="←"
                     Command="{Binding BackToMenuCommand}"
                     Background="Transparent"
                     Foreground="White"
-                    BorderThickness="0"
-                    FontSize="16"
-                    Margin="20,0,0,0"
-                    Cursor="Hand" />
+                    FontSize="32"
+                    FontWeight="Bold"
+                    Padding="0,0,0,8"
+                    Margin="20,2,0,0"
+                    Cursor="Hand"
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" />
             
             <TextBlock Grid.Column="1" 
-                       Text="Edit Existing Quiz" 
+                       Text="Edit" 
+                       Margin="20,0,0,0"
                        FontSize="28" 
                        FontWeight="Bold" 
                        Foreground="White"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
+                       HorizontalAlignment="Left" />
         </Grid>
         
         <!-- Main Content -->
@@ -62,13 +67,13 @@
                     
                     <ListBox ItemsSource="{Binding AvailableQuizzes}"
                              SelectedItem="{Binding SelectedQuiz}"
-                             Height="400"
+                             Height="300"
                              FontSize="14"
                              BorderBrush="#BDC3C7"
                              BorderThickness="1">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}" 
+                                <TextBlock Text="{Binding Category}" 
                                            Padding="5"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -76,12 +81,7 @@
                     
                     <Button Content="Load Quiz" 
                             Command="{Binding LoadQuizCommand}"
-                            Width="150"
-                            Height="40"
-                            FontSize="16"
-                            Margin="0,20,0,0"
-                            Background="#E67E22"
-                            Style="{StaticResource QuizGameButtonStyle}">
+                            Style="{StaticResource EditButtonStyle}">
                     </Button>
                 </StackPanel>
             </Border>
@@ -92,7 +92,7 @@
                           Visibility="{Binding IsQuizLoadedVisibility}">
                 <StackPanel>
                     
-                    <!-- Quiz Name -->
+                    <!-- Category -->
                     <Border Background="White" 
                             CornerRadius="10" 
                             Padding="30"
@@ -100,12 +100,12 @@
                             BorderBrush="#BDC3C7"
                             BorderThickness="1">
                         <StackPanel>
-                            <TextBlock Text="Quiz Name" 
+                            <TextBlock Text="Category" 
                                        FontSize="18" 
                                        FontWeight="Bold"
                                        Margin="0,0,0,10"
                                        Foreground="#2C3E50"/>
-                            <TextBox Text="{Binding QuizName, UpdateSourceTrigger=PropertyChanged}" 
+                            <TextBox Text="{Binding QuizCategory, UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="16"
                                      Height="40"
                                      Padding="10"
@@ -141,22 +141,13 @@
                                             <TextBlock Text="{Binding QuestionNumber, StringFormat='Question {0}'}" 
                                                        FontWeight="Bold"
                                                        Margin="0,0,0,5"/>
-                                            <TextBlock Text="{Binding QuestionText}" 
+                                            <TextBlock Text="{Binding Statement}" 
                                                        TextWrapping="Wrap"
                                                        Foreground="#6C757D"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
-                            
-                            <Button Content="Edit Selected Question" 
-                                    Command="{Binding EditQuestionCommand}"
-                                    Width="200"
-                                    Height="40"
-                                    FontSize="16"
-                                    Background="#E67E22"
-                                    Style="{StaticResource QuizGameButtonStyle}">
-                            </Button>
                         </StackPanel>
                     </Border>
                     
@@ -175,11 +166,11 @@
                                        Margin="0,0,0,20"
                                        Foreground="#2C3E50"/>
                             
-                            <TextBlock Text="Question Text:" 
+                            <TextBlock Text="Statement:" 
                                        FontSize="14" 
                                        Margin="0,0,0,5"
                                        Foreground="#6C757D"/>
-                            <TextBox Text="{Binding SelectedQuestion.QuestionText, UpdateSourceTrigger=PropertyChanged}" 
+                            <TextBox Text="{Binding SelectedQuestion.Statement, UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="14"
                                      Height="60"
                                      TextWrapping="Wrap"
@@ -189,11 +180,11 @@
                                      BorderBrush="#CED4DA"
                                      BorderThickness="1"/>
                             
-                            <TextBlock Text="Answer 1:" 
+                            <TextBlock Text="First Answer:" 
                                        FontSize="14" 
                                        Margin="0,0,0,5"
                                        Foreground="#6C757D"/>
-                            <TextBox Text="{Binding SelectedQuestion.Answer1, UpdateSourceTrigger=PropertyChanged}" 
+                            <TextBox Text="{Binding SelectedQuestion.FirstAnswer, UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="14"
                                      Height="35"
                                      Padding="8"
@@ -201,11 +192,11 @@
                                      BorderBrush="#CED4DA"
                                      BorderThickness="1"/>
                             
-                            <TextBlock Text="Answer 2:" 
+                            <TextBlock Text="Second Answer:" 
                                        FontSize="14" 
                                        Margin="0,0,0,5"
                                        Foreground="#6C757D"/>
-                            <TextBox Text="{Binding SelectedQuestion.Answer2, UpdateSourceTrigger=PropertyChanged}" 
+                            <TextBox Text="{Binding SelectedQuestion.SecondAnswer, UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="14"
                                      Height="35"
                                      Padding="8"
@@ -213,11 +204,11 @@
                                      BorderBrush="#CED4DA"
                                      BorderThickness="1"/>
                             
-                            <TextBlock Text="Answer 3:" 
+                            <TextBlock Text="Third Answer:" 
                                        FontSize="14" 
                                        Margin="0,0,0,5"
                                        Foreground="#6C757D"/>
-                            <TextBox Text="{Binding SelectedQuestion.Answer3, UpdateSourceTrigger=PropertyChanged}" 
+                            <TextBox Text="{Binding SelectedQuestion.ThirdAnswer, UpdateSourceTrigger=PropertyChanged}" 
                                      FontSize="14"
                                      Height="35"
                                      Padding="8"
@@ -225,30 +216,42 @@
                                      BorderBrush="#CED4DA"
                                      BorderThickness="1"/>
                             
+                            <TextBlock Text="Fourth Answer:" 
+                                       FontSize="14" 
+                                       Margin="0,0,0,5"
+                                       Foreground="#6C757D"/>
+                            <TextBox Text="{Binding SelectedQuestion.FourthAnswer, UpdateSourceTrigger=PropertyChanged}" 
+                                     FontSize="14"
+                                     Height="35"
+                                     Padding="8"
+                                     Margin="0,0,0,10"
+                                     BorderBrush="#CED4DA"
+                                     BorderThickness="1" />
                             <TextBlock Text="Correct Answer:" 
                                        FontSize="14" 
                                        Margin="0,0,0,5"
                                        Foreground="#6C757D"/>
                             <ComboBox SelectedItem="{Binding SelectedQuestion.CorrectAnswer, UpdateSourceTrigger=PropertyChanged}"
+                                      ItemsSource="{Binding SelectedQuestion.AnswerOptions}"
                                       FontSize="14"
                                       Height="35"
                                       Padding="8"
                                       Margin="0,0,0,20"
                                       BorderBrush="#CED4DA"
-                                      BorderThickness="1">
-                                <ComboBoxItem Content="{Binding SelectedQuestion.Answer1}"/>
-                                <ComboBoxItem Content="{Binding SelectedQuestion.Answer2}"/>
-                                <ComboBoxItem Content="{Binding SelectedQuestion.Answer3}"/>
-                            </ComboBox>
+                                      BorderThickness="1" />
                             
                             <Button Content="Save Changes" 
                                     Command="{Binding SaveChangesCommand}"
-                                    Width="200"
-                                    Height="40"
-                                    FontSize="16"
-                                    Background="#2ECC71"
-                                    Style="{StaticResource QuizGameButtonStyle}">
+                                    Style="{StaticResource SuccessButtonStyle}">
                             </Button>
+                            
+                            <TextBlock Text="{Binding StatusMessage}"
+                                       Foreground="{Binding StatusColor}"
+                                       FontSize="12"
+                                       FontWeight="Bold"
+                                       Margin="0,15,0,0"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center" />
                         </StackPanel>
                     </Border>
                 </StackPanel>

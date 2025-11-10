@@ -1,0 +1,25 @@
+{
+  "Category": "Films",
+  "Questions": [
+    {"Statement":"Who directed 'Jaws' (1975)?","Answers":["Steven Spielberg","George Lucas","Alfred Hitchcock","James Cameron"],"CorrectAnswer":"Steven Spielberg"},
+    {"Statement":"Which movie features the quote, 'Houston, we have a problem'?","Answers":["Apollo 13","Gravity","Interstellar","The Martian"],"CorrectAnswer":"Apollo 13"},
+    {"Statement":"Which animated film did Walt Disney win his first Oscar for?","Answers":["Snow White and the Seven Dwarfs","Cinderella","Fantasia","Bambi"],"CorrectAnswer":"Snow White and the Seven Dwarfs"},
+    {"Statement":"Which 1994 film features the song 'Hakuna Matata'?","Answers":["The Lion King","Toy Story","Shrek","Aladdin"],"CorrectAnswer":"The Lion King"},
+    {"Statement":"In which film does Harrison Ford play Indiana Jones for the first time?","Answers":["Raiders of the Lost Ark","The Temple of Doom","The Last Crusade","Kingdom of the Crystal Skull"],"CorrectAnswer":"Raiders of the Lost Ark"},
+    {"Statement":"What film has the iconic quote 'Here’s looking at you, kid'?","Answers":["Casablanca","Gone with the Wind","Breakfast at Tiffany's","Rear Window"],"CorrectAnswer":"Casablanca"},
+    {"Statement":"What movie won the first Academy Award for Best Picture?","Answers":["Wings","Sunrise","The Jazz Singer","Metropolis"],"CorrectAnswer":"Wings"},
+    {"Statement":"Who played Jack Dawson in 'Titanic'?","Answers":["Leonardo DiCaprio","Tom Cruise","Brad Pitt","Matt Damon"],"CorrectAnswer":"Leonardo DiCaprio"},
+    {"Statement":"What is the name of the kingdom in 'Frozen'?","Answers":["Arendelle","Corona","Westeros","Narnia"],"CorrectAnswer":"Arendelle"},
+    {"Statement":"Which film’s villain is Darth Vader?","Answers":["Star Wars","Star Trek","Battlestar Galactica","The Matrix"],"CorrectAnswer":"Star Wars"},
+    {"Statement":"Who holds the record for most Academy Awards?","Answers":["Walt Disney","Katharine Hepburn","John Williams","Steven Spielberg"],"CorrectAnswer":"Walt Disney"},
+    {"Statement":"What was the first fantasy film to win Best Picture at the Oscars?","Answers":["The Lord of the Rings: The Return of the King","Harry Potter and the Sorcerer's Stone","Avatar","Pan's Labyrinth"],"CorrectAnswer":"The Lord of the Rings: The Return of the King"},
+    {"Statement":"Which 2010 drama about Facebook did Aaron Sorkin write?","Answers":["The Social Network","Steve Jobs","Moneyball","The Internship"],"CorrectAnswer":"The Social Network"},
+    {"Statement":"Which city is the setting of 'La La Land'?","Answers":["Los Angeles","New York","London","Paris"],"CorrectAnswer":"Los Angeles"},
+    {"Statement":"Who played the Joker in 'The Dark Knight'?","Answers":["Heath Ledger","Joaquin Phoenix","Jared Leto","Jack Nicholson"],"CorrectAnswer":"Heath Ledger"},
+    {"Statement":"Which film features the 'Time Warp' dance?","Answers":["The Rocky Horror Picture Show","Dirty Dancing","Footloose","Fame"],"CorrectAnswer":"The Rocky Horror Picture Show"},
+    {"Statement":"For what movie did Steven Spielberg win his first Oscar for Best Director?","Answers":["Schindler's List","E.T.","Jurassic Park","Saving Private Ryan"],"CorrectAnswer":"Schindler's List"},
+    {"Statement":"What type of creature is on the back of Ryan Gosling’s jacket in 'Drive'?","Answers":["Scorpion","Cobra","Tiger","Wolf"],"CorrectAnswer":"Scorpion"},
+    {"Statement":"Who voiced Woody in 'Toy Story'?","Answers":["Tom Hanks","Tim Allen","Robin Williams","Billy Crystal"],"CorrectAnswer":"Tom Hanks"},
+    {"Statement":"Who is the main antagonist in 'The Silence of the Lambs'?","Answers":["Hannibal Lecter","Norman Bates","Freddy Krueger","Jason Voorhees"],"CorrectAnswer":"Hannibal Lecter"}
+  ]
+}

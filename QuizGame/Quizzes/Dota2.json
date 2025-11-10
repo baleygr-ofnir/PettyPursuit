@@ -1,0 +1,25 @@
+{
+  "Category": "Dota 2",
+  "Questions": [
+    {"Statement":"Which hero in Dota 2 is known for 'Ice Path' and 'Macropyre'?","Answers":["Jakiro","Lina","Crystal Maiden","Pugna"],"CorrectAnswer":"Jakiro"},
+    {"Statement":"Which item grants a shield that blocks the next targeted spell?","Answers":["Linken's Sphere","Black King Bar","Aghanim's Scepter","Manta Style"],"CorrectAnswer":"Linken's Sphere"},
+    {"Statement":"What is the highest level a hero can reach in a standard Dota 2 game?","Answers":["30","25","50","100"],"CorrectAnswer":"30"},
+    {"Statement":"Which hero is also known as 'The Rogue Knight'?","Answers":["Sven","Omniknight","Dragon Knight","Chaos Knight"],"CorrectAnswer":"Sven"},
+    {"Statement":"What neutral objective gives Aegis of the Immortal?","Answers":["Roshan","Ancient Black Dragon","Outpost","Tormentor"],"CorrectAnswer":"Roshan"},
+    {"Statement":"Whose ultimate ability is called 'Black Hole'?","Answers":["Enigma","Magnus","Vengeful Spirit","Earthshaker"],"CorrectAnswer":"Enigma"},
+    {"Statement":"Which Intelligence hero is famous for his 'Assassinate' ability?","Answers":["Sniper","Invoker","Tinker","Zeus"],"CorrectAnswer":"Sniper"},
+    {"Statement":"Which hero can 'borrow' spells with his ultimate 'Spell Steal'?","Answers":["Rubick","Lion","Lina","Nyx Assassin"],"CorrectAnswer":"Rubick"},
+    {"Statement":"Which item gives both invisibility and attack speed?","Answers":["Shadow Blade","Blink Dagger","Heaven's Halberd","Lotus Orb"],"CorrectAnswer":"Shadow Blade"},
+    {"Statement":"What is Techies' ultimate ability's name?","Answers":["Remote Mines","Detonate","Land Mines","Stasis Trap"],"CorrectAnswer":"Remote Mines"},
+    {"Statement":"Who is known as the 'Courier Killer' due to his ability to track and hunt enemies?","Answers":["Bounty Hunter","Riki","Bristleback","Slark"],"CorrectAnswer":"Bounty Hunter"},
+    {"Statement":"Which hero initiates with his 'Snowball' ability and finishes with 'Walrus Punch!'?","Answers":["Tusk","Earth Spirit","Keeper of the Light","Ursa"],"CorrectAnswer":"Tusk"},
+    {"Statement":"Name the primary attribute of Anti-Mage?","Answers":["Agility","Strength","Intelligence","Spirit"],"CorrectAnswer":"Agility"},
+    {"Statement":"Who is Dota 2’s immortal shopkeeper, his true name sometimes referenced in lore?","Answers":["Maraxiform","Rubick","Invoker","Tinker"],"CorrectAnswer":"Maraxiform"},
+    {"Statement":"Which ability allows Windranger to shoot several arrows rapidly in a straight line?","Answers":["Focus Fire","Power Shot","Shackleshot","Windrun"],"CorrectAnswer":"Focus Fire"},
+    {"Statement":"Which item lets you teleport anywhere on the map with a channel time?","Answers":["Boots of Travel","Blink Dagger","Town Portal Scroll","Force Staff"],"CorrectAnswer":"Boots of Travel"},
+    {"Statement":"Which strength hero can 'True Form' into a bear?","Answers":["Lone Druid","Lycan","Beastmaster","Ursa"],"CorrectAnswer":"Lone Druid"},
+    {"Statement":"What is Drow Ranger’s real name?","Answers":["Traxex","Lina","Davion","Rylai"],"CorrectAnswer":"Traxex"},
+    {"Statement":"Which hero’s passive reflects a portion of damage back to attackers?","Answers":["Bristleback","Axe","Timbersaw","Centaur Warrunner"],"CorrectAnswer":"Bristleback"},
+    {"Statement":"Who is the only hero that can play as three units at once, called 'clones'?","Answers":["Meepo","Arc Warden","Broodmother","Phantom Lancer"],"CorrectAnswer":"Meepo"}
+  ]
+}

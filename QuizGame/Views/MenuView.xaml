@@ -17,42 +17,34 @@
                    FontSize="48"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
-                   Margin="0,48,0,60" 
+                   Margin="0,60,0,0" 
                    Foreground="#2c3e50" />
         
         <!-- Menu Buttons -->
         <StackPanel Grid.Row="1"
+                    Width="240"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             
             <!-- Play -->
             <Button Content="Play Quiz"
                     Command="{Binding NavigateToPlayCommand}"
-                    Height="60"
-                    Width="250"
-                    Margin="0,0,0,20"
-                    Background="#3498DB"
-                    Style="{StaticResource QuizGameButtonStyle}">
+                    Margin="0,14,0,0"
+                    Style="{StaticResource PrimaryButtonStyle}">
             </Button>
             
             <!-- Create -->
             <Button Content="Create New Quiz"
                     Command="{Binding NavigateToCreateCommand}"
-                    Height="60"
-                    Width="250"
-                    Margin="0,0,0,20"
-                    Background="#2ECC71"
-                    Style="{StaticResource QuizGameButtonStyle}">
+                    Margin="0,14,0,0"
+                    Style="{StaticResource SuccessButtonStyle}">
             </Button>
             
             <!-- Edit -->
             <Button Content="Edit Existing Quiz"
                     Command="{Binding NavigateToEditCommand}"
-                    Height="60"
-                    Width="250"
-                    Margin="0,0,0,20"
-                    Background="#E67E22"
-                    Style="{StaticResource QuizGameButtonStyle}">
+                    Margin="0,14,0,0"
+                    Style="{StaticResource EditButtonStyle}">
             </Button>
         </StackPanel>
     </Grid>

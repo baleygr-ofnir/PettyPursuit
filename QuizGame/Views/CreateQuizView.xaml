@@ -20,54 +20,59 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
             
-        <Button Grid.Column="0" 
-                Content="←" 
+        <!-- Back Button -->
+        <Button Grid.Column="0"
+                Content="←"
                 Command="{Binding BackToMenuCommand}"
                 Background="Transparent"
                 Foreground="White"
-                BorderThickness="0"
-                FontSize="16"
+                FontSize="32"
                 FontWeight="Bold"
-                Margin="20,0,0,0"
-                Cursor="Hand"/>
+                Padding="0,0,0,8"
+                Margin="20,2,0,0"
+                Cursor="Hand"
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" />
             
         <TextBlock Grid.Column="1" 
-                   Text="Create New Quiz" 
+                   Text="Create"
+                   Margin="12,0,0,0"
                    FontSize="28" 
                    FontWeight="Bold" 
                    Foreground="White"
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+                   HorizontalAlignment="Left"/>
     </Grid>
 
     <!-- Main Content -->
     <Grid Grid.Row="1"
-          MaxWidth="800"
-          Margin="50,30,50,30">
+          MaxWidth="700"
+          Margin="18,14,18,14">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>    <!-- Quiz Name -->
             <RowDefinition Height="*"/>      <!-- Questions List, can grow/scroll -->
             <RowDefinition Height="Auto"/>   <!-- Save Section -->
         </Grid.RowDefinitions>
         
-        <!-- Quiz Title Section -->
+        <!-- Quiz Category Section -->
         <Border Grid.Row="0"
                 Background="White" 
-                CornerRadius="10" 
-                Padding="30"
-                Margin="0,0,0,30"
+                CornerRadius="8" 
+                Padding="16"
+                Margin="0,0,0,10"
                 BorderBrush="#BDC3C7"
                 BorderThickness="1">
             <StackPanel>
-                <TextBlock Text="Quiz Title" 
-                           FontSize="18"
+                <TextBlock Text="Quiz Category" 
+                           FontSize="14"
                            FontWeight="Bold"
-                           Margin="0,0,0,10"
+                           Margin="0,0,0,4"
                            Foreground="#2C3E50" />
-                <TextBox Text="{Binding QuizName, UpdateSourceTrigger=PropertyChanged}" 
-                         FontSize="16"
-                         Height="40"
-                         Padding="10"
+                <TextBox Text="{Binding QuizCategory, UpdateSourceTrigger=PropertyChanged}" 
+                         FontSize="13"
+                         Height="28"
+                         MaxWidth="240"
+                         Padding="6,2"
                          BorderBrush="#BDC3C7"
                          BorderThickness="1" />
             </StackPanel>
@@ -76,56 +81,30 @@
         <!-- Questions List (Scrollable only when needed) -->
         
         <Border Grid.Row="1" 
-                CornerRadius="10" 
-                Padding="30"
-                Margin="0,0,0,30"
+                CornerRadius="8" 
+                Padding="12"
+                Margin="0,0,0,10"
                 Background="White"
                 BorderBrush="#BDC3C7"
                 BorderThickness="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          MinHeight="200"
-                          MaxHeight="400"
-                          Margin="0,0,0,20">
+                          MinHeight="100"
+                          MaxHeight="280">
                 
                 <StackPanel>
-                        <Grid Margin="0,0,0,20">
+                        <Grid Margin="0,0,0,8"
+                              VerticalAlignment="Top">
                             <TextBlock Text="Questions" 
-                                       FontSize="18" 
+                                       FontSize="14" 
                                        FontWeight="Bold"
                                        Foreground="#2C3E50"
                                        VerticalAlignment="Center" />
                             <Button Content="+" 
                                     Command="{Binding AddQuestionCommand}"
-                                    HorizontalAlignment="Right"
-                                    Background="#2ECC71"
-                                    Foreground="White"
-                                    BorderThickness="0"
-                                    Padding="12,6"
-                                    FontSize="20"
+                                    FontSize="16"
                                     FontWeight="Bold"
-                                    Cursor="Hand">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="Button">
-                                                    <Border Background="{TemplateBinding Background}" 
-                                                            CornerRadius="5"
-                                                            Padding="{TemplateBinding Padding}">
-                                                        <ContentPresenter HorizontalAlignment="Center" 
-                                                                        VerticalAlignment="Center"/>
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#27AE60"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                            </Button>
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource UtilityButtonStyle}"/>
                         </Grid>
                         
                         <ItemsControl ItemsSource="{Binding Questions}">
@@ -133,14 +112,14 @@
                                 <DataTemplate>
                                     <Border Background="#F8F9FA" 
                                             CornerRadius="5" 
-                                            Padding="20"
-                                            Margin="0,0,0,15"
+                                            Padding="12"
+                                            Margin="0,0,0,7"
                                             BorderBrush="#DEE2E6"
                                             BorderThickness="1">
                                         <StackPanel>
-                                            <Grid Margin="0,0,0,15">
+                                            <Grid Margin="0,0,0,8">
                                                 <TextBlock Text="{Binding QuestionNumber, StringFormat='Question {0}'}" 
-                                                           FontSize="16" 
+                                                           FontSize="13"
                                                            FontWeight="Bold"
                                                            Foreground="#495057"/>
                                                 <Button Content="Remove" 
@@ -148,118 +127,86 @@
                                                                  RelativeSource={RelativeSource AncestorType=UserControl}}"
                                                         CommandParameter="{Binding}"
                                                         HorizontalAlignment="Right"
-                                                        Background="#E74C3C"
-                                                        Foreground="White"
-                                                        BorderThickness="0"
-                                                        Padding="10,5"
-                                                        FontSize="12"
-                                                        Cursor="Hand">
-                                                    <Button.Style>
-                                                        <Style TargetType="Button">
-                                                            <Setter Property="Template">
-                                                                <Setter.Value>
-                                                                    <ControlTemplate TargetType="Button">
-                                                                        <Border Background="{TemplateBinding Background}" 
-                                                                                CornerRadius="3"
-                                                                                Padding="{TemplateBinding Padding}">
-                                                                            <ContentPresenter VerticalAlignment="Center"
-                                                                                    HorizontalAlignment="Center" />
-                                                                        </Border>
-                                                                    </ControlTemplate>
-                                                                </Setter.Value>
-                                                            </Setter>
-                                                            <Style.Triggers>
-                                                                <Trigger Property="IsMouseOver" Value="True">
-                                                                    <Setter Property="Background" Value="#C0392B"/>
-                                                                </Trigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </Button.Style>
-                                                </Button>
+                                                        Padding="6,2"
+                                                        FontSize="11"
+                                                        Style="{StaticResource DangerButtonStyle}"/>
                                             </Grid>
                                             
-                                            <TextBlock Text="Statement:" 
-                                                       FontSize="14" 
-                                                       Margin="0,0,0,5"
+                                            <TextBlock Text="Statement:"
+                                                       Height="44"
+                                                       Margin="0,0,0,2"
+                                                       FontSize="12"
                                                        Foreground="#6C757D"/>
                                             <TextBox Text="{Binding Statement, UpdateSourceTrigger=PropertyChanged}" 
-                                                     FontSize="14"
-                                                     Height="60"
+                                                     FontSize="12"
+                                                     Height="44"
                                                      TextWrapping="Wrap"
                                                      AcceptsReturn="True"
-                                                     Padding="8"
-                                                     Margin="0,0,0,15"
+                                                     Padding="4"
+                                                     Margin="0,0,0,7"
                                                      BorderBrush="#CED4DA"
                                                      BorderThickness="1"/>
                                             
                                             <TextBlock Text="First Answer:" 
-                                                       FontSize="14" 
-                                                       Margin="0,0,0,5"
+                                                       FontSize="12"
+                                                       Margin="0,0,0,3"
                                                        Foreground="#6C757D" />
                                             
                                                 <TextBox Text="{Binding FirstAnswer, UpdateSourceTrigger=PropertyChanged}" 
-                                                         FontSize="14"
-                                                         Height="35"
-                                                         Padding="8"
-                                                         Margin="0,0,0,10"
+                                                         FontSize="12"
+                                                         Height="24"
+                                                         Padding="3"
                                                          BorderBrush="#CED4DA"
                                                          BorderThickness="1" />
                                             
                                                 <TextBlock Text="Second Answer:" 
-                                                           FontSize="14" 
-                                                           Margin="0,0,0,5"
+                                                           FontSize="12" 
+                                                           Margin="0,0,0,3"
                                                            Foreground="#6C757D" />
                                             
                                                 <TextBox Text="{Binding SecondAnswer, UpdateSourceTrigger=PropertyChanged}" 
-                                                         FontSize="14"
-                                                         Height="35"
-                                                         Padding="8"
-                                                         Margin="0,0,0,10"
+                                                         FontSize="12"
+                                                         Height="24"
+                                                         Padding="3"
                                                          BorderBrush="#CED4DA"
                                                          BorderThickness="1" />
                                             
                                                 <TextBlock Text="Third Answer:" 
-                                                           FontSize="14" 
-                                                           Margin="0,0,0,5"
+                                                           FontSize="12"
+                                                           Margin="0,0,0,3"
                                                            Foreground="#6C757D" />
                                                 
                                                 <TextBox Text="{Binding ThirdAnswer, UpdateSourceTrigger=PropertyChanged}" 
-                                                         FontSize="14"
-                                                         Height="35"
-                                                         Padding="8"
-                                                         Margin="0,0,0,10"
+                                                         FontSize="12"
+                                                         Height="24"
+                                                         Padding="3"
                                                          BorderBrush="#CED4DA"
                                                          BorderThickness="1" />
                                             
                                                 <TextBlock Text="Fourth Answer:" 
-                                                           FontSize="14" 
-                                                           Margin="0,0,0,5"
+                                                           FontSize="12"
+                                                           Margin="0,0,0,3"
                                                            Foreground="#6C757D" />
                                             
                                                 <TextBox Text="{Binding FourthAnswer, UpdateSourceTrigger=PropertyChanged}" 
-                                                         FontSize="14"
-                                                         Height="35"
-                                                         Padding="8"
-                                                         Margin="0,0,0,10"
+                                                         FontSize="12"
+                                                         Height="24"
+                                                         Padding="3"
                                                          BorderBrush="#CED4DA"
                                                          BorderThickness="1" />
                                             
                                                 <TextBlock Text="Correct Answer:" 
-                                                           FontSize="14" 
-                                                           Margin="0,0,0,5"
+                                                           FontSize="12" 
+                                                           Margin="0,0,0,3"
                                                            Foreground="#6C757D" />
                                             
                                                 <ComboBox SelectedItem="{Binding CorrectAnswer, UpdateSourceTrigger=PropertyChanged}"
-                                                      FontSize="14"
-                                                      Height="35"
-                                                      Padding="8"
-                                                      BorderBrush="#CED4DA"
-                                                      BorderThickness="1">
-                                                    <ComboBoxItem Content="{Binding FirstAnswer}"/>
-                                                    <ComboBoxItem Content="{Binding SecondAnswer}"/>
-                                                    <ComboBoxItem Content="{Binding ThirdAnswer}"/>
-                                                    <ComboBoxItem Content="{Binding FourthAnswer}"/>
-                                                </ComboBox>
+                                                          ItemsSource="{Binding AnswerOptions}"
+                                                          FontSize="12"
+                                                          Height="24"
+                                                          Padding="3"
+                                                          BorderBrush="#CED4DA"
+                                                          BorderThickness="1" />
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -272,46 +219,26 @@
 
         <!-- Save Section -->
         <Border Grid.Row="2"
-                MaxHeight="190"
-                CornerRadius="10" 
-                Padding="30"
+                MaxHeight="90"
+                CornerRadius="8" 
+                Padding="18"
                 Background="White"
                 BorderBrush="#BDC3C7"
                 BorderThickness="1">
+            
             <StackPanel>
-                <TextBlock Text="Save Format" 
-                           FontSize="18" 
+                <Button Content="Save Quiz" 
+                        Command="{Binding SaveQuizCommand}"
+                        Style="{StaticResource SuccessButtonStyle}" />
+                
+                <TextBlock Text="{Binding StatusMessage}"
+                           Foreground="{Binding StatusColor}"
+                           FontSize="11"
                            FontWeight="Bold"
-                           Margin="0,0,0,15"
-                           Foreground="#2C3E50"/>
-                        
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
-                        <RadioButton Content="JSON" 
-                                     IsChecked="{Binding IsJsonFormat}"
-                                     FontSize="16"
-                                     Margin="0,0,30,0"
-                                     VerticalContentAlignment="Center"/>
-                        <RadioButton Content="XML" 
-                                     IsChecked="{Binding IsXmlFormat}"
-                                     FontSize="16"
-                                     Margin="0,0,30,0"
-                                     VerticalContentAlignment="Center"/>
-                        <RadioButton Content="CSV" 
-                                     IsChecked="{Binding IsCsvFormat}"
-                                     FontSize="16"
-                                     VerticalContentAlignment="Center"/>
-                    </StackPanel>
-                        
-                    <Button Content="Save Quiz" 
-                            Command="{Binding SaveQuizCommand}"
-                            Width="200"
-                            Height="50"
-                            Margin="0,1,0,0"
-                            FontSize="18"
-                            Background="#2ECC71"
-                            Style="{StaticResource QuizGameButtonStyle}">
-                    </Button>
-                </StackPanel>
+                           Margin="0,9,0,0"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center" />
+            </StackPanel>
             </Border>
         </Grid>
     </Grid>
