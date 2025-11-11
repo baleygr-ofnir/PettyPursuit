@@ -73,6 +73,7 @@ public class PlayQuizViewModel : ViewModelBase
 
     // Commands
     public ICommand BackCommand { get; }
+    public ICommand BackToMenuCommand { get; }
     public ICommand ResetQuizCommand { get; }
     public ICommand StartQuizCommand { get; }
     public ICommand AnswerSelectedCommand { get; }
@@ -83,6 +84,7 @@ public class PlayQuizViewModel : ViewModelBase
 
         // Init commands
         BackCommand = new RelayCommand(o => Back());
+        BackToMenuCommand = new RelayCommand(_ => _mainViewModel.NavigateToMenuCommand.Execute(null));
         ResetQuizCommand = new RelayCommand(o => ResetQuiz());
         StartQuizCommand = new RelayCommand(o => StartQuizAsync(), o => SelectedQuiz != null);
         AnswerSelectedCommand = new RelayCommand(AnswerSelected);

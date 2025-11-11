@@ -62,9 +62,9 @@ public class EditQuizViewModel : ViewModelBase
         _mainViewModel = mainViewModel;
         AvailableQuizzes = new ObservableCollection<Quiz>();
         Questions = new ObservableCollection<QuestionViewModel>();
-        BackToMenuCommand = new RelayCommand(o => _mainViewModel.NavigateToMenuCommand.Execute(null));
-        LoadQuizCommand = new RelayCommand(o => LoadQuizAsync(), o => SelectedQuiz != null);
-        SaveChangesCommand = new RelayCommand(o => SaveChangesAsync());
+        BackToMenuCommand = new RelayCommand(_ => _mainViewModel.NavigateToMenuCommand.Execute(null));
+        LoadQuizCommand = new RelayCommand(_ => LoadQuizAsync(), o => SelectedQuiz != null);
+        SaveChangesCommand = new RelayCommand(_ => SaveChangesAsync());
 
         LoadAvailableQuizzesAsync();
     }

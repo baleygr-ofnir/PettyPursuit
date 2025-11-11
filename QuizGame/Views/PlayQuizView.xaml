@@ -236,7 +236,7 @@
                     Style="{StaticResource NavigationButtonStyle}"/>
             
             <Button Content="Back to Menu"
-                    Command="{Binding BackCommand}"
+                    Command="{Binding BackToMenuCommand}"
                     Margin="0,20,0,0"
                     Background="#3498DB"
                     Style="{StaticResource NavigationButtonStyle}">

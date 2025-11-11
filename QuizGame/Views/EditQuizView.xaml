@@ -22,7 +22,7 @@
             <!-- Back Button -->
             <Button Grid.Column="0"
                     Content="←"
-                    Command="{Binding BackCommand}"
+                    Command="{Binding BackToMenuCommand}"
                     Background="Transparent"
                     Foreground="White"
                     FontSize="32"
